@@ -1,0 +1,23 @@
+name: flutter_lazy_load_web_example
+description: Demonstrates flutter_lazy_load_web with a before/after comparison.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: '>=3.16.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  go_router: ^14.0.0
+  flutter_lazy_load_web:
+    path: ../
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
