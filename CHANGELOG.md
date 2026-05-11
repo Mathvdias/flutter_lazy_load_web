@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.3
+
+- Shorten pubspec description to comply with pub.dev 60–180 character limit.
+- Remove redundant `flutter/foundation.dart` import (already provided by `flutter/material.dart`).
+
+## 0.1.2
+
+- Extract default error widget strings into a private `_Strings` constants class (`lib/src/strings.dart`), making future localisation or customisation straightforward.
+
 ## 0.1.1
 
 - Add `lazy()` top-level function — use directly as a go_router (or any router)
