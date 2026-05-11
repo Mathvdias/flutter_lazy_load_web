@@ -1,0 +1,26 @@
+# Dart / Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+pubspec.lock
+
+# Build outputs
+build/
+coverage/html/
+
+# macOS
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# pub cache
+.pub-cache/
+.pub/
+
+# Example app — lockfile OK to commit, but not build artifacts
+example/build/
+example/.dart_tool/
