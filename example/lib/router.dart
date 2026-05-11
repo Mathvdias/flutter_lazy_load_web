@@ -49,17 +49,18 @@ final router = GoRouter(
           path: '/home',
           builder: (context, state) => _WelcomePage(),
         ),
+        // lazy() is the most concise form — one line per route.
         GoRoute(
-          path: _dashboardRoute.path,
-          builder: (_, __) => _dashboardRoute.toWidget(),
+          path: '/dashboard',
+          builder: lazy(dashboard.loadLibrary, dashboard.DashboardScreen.new),
         ),
         GoRoute(
-          path: _settingsRoute.path,
-          builder: (_, __) => _settingsRoute.toWidget(),
+          path: '/settings',
+          builder: lazy(settings.loadLibrary, settings.SettingsScreen.new),
         ),
         GoRoute(
-          path: _profileRoute.path,
-          builder: (_, __) => _profileRoute.toWidget(),
+          path: '/profile',
+          builder: lazy(profile.loadLibrary, profile.ProfileScreen.new),
         ),
       ],
     ),

@@ -3,7 +3,7 @@ description: >-
   A Flutter widget that wraps Dart deferred (lazy) library loading for web apps.
   Splits your app into on-demand chunks, dramatically reducing the initial JS
   bundle size and improving time-to-interactive — with zero external dependencies.
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/Mathvdias/flutter_lazy_load_web
 repository: https://github.com/Mathvdias/flutter_lazy_load_web
 issue_tracker: https://github.com/Mathvdias/flutter_lazy_load_web/issues

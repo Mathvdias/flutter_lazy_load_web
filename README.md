@@ -83,7 +83,7 @@ import 'screens/dashboard_screen.dart';
 import 'screens/dashboard_screen.dart' deferred as dashboard;
 ```
 
-### 2 — Wrap your route builder with DeferredWidget
+### 2 — Use `lazy()` as the route builder
 
 ```dart
 import 'package:flutter_lazy_load_web/flutter_lazy_load_web.dart';
@@ -91,15 +91,35 @@ import 'screens/dashboard_screen.dart' deferred as dashboard;
 
 GoRoute(
   path: '/dashboard',
-  builder: (context, state) => DeferredWidget(
-    dashboard.loadLibrary,   // ← the generated loader
-    () => const dashboard.DashboardScreen(),  // ← factory (note the prefix)
-  ),
+  builder: lazy(dashboard.loadLibrary, dashboard.DashboardScreen.new),
 ),
 ```
 
-That's it. Open Chrome DevTools → Network and navigate to `/dashboard` — you
-will see `dashboard_screen.dart.js` appear as a separate request.
+That's it — one line per route. Open Chrome DevTools → Network and navigate
+to `/dashboard` — you will see `dashboard_screen.dart.js` load on demand.
+
+> **Does `lazy()` require go_router?** No. The function uses a generic type
+> parameter `S` that Dart infers from the call-site. It works with go_router,
+> Navigator, or any router that expects `Widget Function(BuildContext, T)`.
+
+### Before / after comparison
+
+```dart
+// Before — verbose, 6 lines per route
+GoRoute(
+  path: '/dashboard',
+  builder: (context, state) => DeferredWidget(
+    dashboard.loadLibrary,
+    () => const dashboard.DashboardScreen(),
+  ),
+),
+
+// After — with lazy(), 3 lines per route
+GoRoute(
+  path: '/dashboard',
+  builder: lazy(dashboard.loadLibrary, dashboard.DashboardScreen.new),
+),
+```
 
 ---
 

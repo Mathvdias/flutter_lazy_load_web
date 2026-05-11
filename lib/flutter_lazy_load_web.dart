@@ -30,3 +30,4 @@ export 'src/deferred_widget.dart'
     show DeferredWidget, LibraryLoader, DeferredWidgetBuilder;
 export 'src/deferred_route.dart'
     show DeferredRoute, DeferredRouteListX;
+export 'src/lazy_builder.dart' show lazy;
